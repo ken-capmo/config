@@ -98,7 +98,7 @@ function checkAssignments() {
 function checkLabels() {
   if (!danger.github.issue.labels.length) {
     issues.push(
-      `${getLabelIssues(process.env['PLATFORM'])}\n\n![img](${getRandomImage( 
+      `${getLabelIssues(process.env['PLATFORM'])}\n\n![img](${getRandomImage(
         imageStore.noLabels
       )}, 'Oops')\n`
     );
@@ -118,8 +118,9 @@ function checkForVersionUpdate() {
     );
   }
 
-  issues.push(`Please ensure the package version has been bumped in accordance with [Semantic Versioning](https://semver.org/)\n
-  and run \`npm i\` to update \`package-lock.json`\n`);
+  issues.push(
+    `Please ensure the package version has been bumped in accordance with [Semantic Versioning](https://semver.org/)\n and run \`npm i\` to update \`package-lock.json\` \n`
+  );
 }
 
 async function dangerJs() {

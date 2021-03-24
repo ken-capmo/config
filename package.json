@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "codeclimate.yml"
+    "codeclimate.yml",
+    "Danger/dangerfile.js"
   ],
   "repository": {
     "type": "git",
