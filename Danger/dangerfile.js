@@ -147,4 +147,6 @@ async function dangerJs() {
   });
 }
 
-dangerJs();
+module.exports = {
+  dangerJs
+};

@@ -7,7 +7,7 @@
   },
   "files": [
     "codeclimate.yml",
-    "Danger/dangerfile.js"
+    "Danger/**"
   ],
   "repository": {
     "type": "git",
