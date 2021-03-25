@@ -1,4 +1,3 @@
-const { danger, fail } = require('danger');
 const {
   committedFilesGrep,
   fileAddedLineNumbers,
