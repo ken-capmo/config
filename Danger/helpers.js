@@ -22,18 +22,19 @@ const pullRequestLabels = {
 };
 const defaultLabels = [
  'bug',
-    'dependencies',
-    'enhancement',
-    'needs_rebase',
-    'needs_testing',
-    'on_hold',
-    'prototype',
-    'refactoring',
-    'security',
-    'setup',
-    'wip',
+  'dependencies',
+  'enhancement',
+  'needs_rebase',
+  'needs_testing',
+  'on_hold',
+  'prototype',
+  'refactoring',
+  'security',
+  'setup',
+  'wip',
 ]
 const labelsPerPlatform = {
+  default: defaultLabels,
   mobile: [
     ...defaultLabels,
     'release',
@@ -47,7 +48,7 @@ const labelsPerPlatform = {
   ],
 };
 
-const getLabelIssues = platform => {
+const getLabelIssues = (platform = "default") => {
   if (labelsPerPlatform[platform]) {
     const labelsText = labelsPerPlatform[platform].reduce((text, label) => {
       text = text + `\n- \`${label}\`: ${pullRequestLabels[label]}`;

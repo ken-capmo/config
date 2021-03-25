@@ -93,11 +93,11 @@ function checkAssignments() {
   }
 }
 
-// labels are a bit different for every platform so we use PLATFORM environment variable
-function checkLabels() {
+// labels are a bit different for every platform so you can pass an argument to set a custom message
+function checkLabels(platform) {
   if (!danger.github.issue.labels.length) {
     issues.push(
-      `${getLabelIssues(process.env['PLATFORM'])}\n\n![img](${getRandomImage(
+      `${getLabelIssues(platform)}\n\n![img](${getRandomImage(
         imageStore.noLabels
       )}, 'Oops')\n`
     );
@@ -122,21 +122,15 @@ function checkForVersionUpdate() {
   );
 }
 
-async function dangerJs() {
-  const { PLATFORM } = process.env;
-
-  if (PLATFORM === undefined) {
-    throw new Error('Environment variable PLATFORM is not set');
-  }
-
+async function dangerJs(platform) {
   await checkPRSize();
   checkTitlePrefix();
   checkJiraURL();
   checkSummary();
   checkAssignments();
-  checkLabels();
+  checkLabels(platform);
 
-  if (PLATFORM === 'backend') {
+  if (platform === 'backend') {
     checkForVersionUpdate();
   }
 
