@@ -1,0 +1,36 @@
+version: 2.1
+
+jobs:
+  publish:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.18.3
+    steps: 
+      - add_ssh_keys
+      - checkout
+      - run:
+          name: Git identitity
+          command: |
+            git config --global user.email "jarvis@capmo.de"
+            git config --global user.name "capmo-jarvis"
+      - run:
+          name: Increase version
+          command: |
+            npm version minor -m "%s [ci skip]"
+            git push --follow-tags
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/repo/.npmrc
+      - deploy:
+          name: Publish package
+          command: npm publish
+
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only: main

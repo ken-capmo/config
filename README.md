@@ -2,6 +2,18 @@
 
 Basic, extendable configuration for Product and Engineering team
 
+# Installation
+
+```
+npm install @capmo/config --save
+```
+
+or 
+
+```
+yarn add @capmo/config
+```
+
 # Linting and Styling
 
 ## Overview
@@ -72,3 +84,7 @@ You can currently pass a string argument to the `dangerJs` function, which can b
   command: |
   npx danger ci
 ```
+
+# Deployment
+
+When commit on `main` branch occurs CircleCi job automatically increases minor version number and distributes the package to npm registry. 
