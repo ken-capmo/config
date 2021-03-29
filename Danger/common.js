@@ -5,7 +5,7 @@ const {
 } = require('danger-plugin-toolbox');
 const { getLabelIssues, getRandomImage } = require('./helpers');
 const { imageStore } = require('./imageStore');
-
+  
 const issues = [];
 
 async function checkPRSize() {
@@ -94,45 +94,23 @@ function checkAssignments() {
 }
 
 // labels are a bit different for every platform so you can pass an argument to set a custom message
-function checkLabels(platform) {
+function checkLabels(labelIssues) {
   if (!danger.github.issue.labels.length) {
     issues.push(
-      `${getLabelIssues(platform)}\n\n![img](${getRandomImage(
+      `${labelIssues}\n\n![img](${getRandomImage(
         imageStore.noLabels
       )}, 'Oops')\n`
     );
   }
 }
 
-function checkForVersionUpdate() {
-  const packageChanged = danger.git.modified_files.includes('package.json');
-  const lockfileChanged = danger.git.modified_files.includes(
-    'package-lock.json'
-  );
-
-  if (packageChanged) return;
-  if (packageChanged && !lockfileChanged) {
-    issues.push(
-      `Changes were made to \`package.json\`, but not to \`package-lock.json\` - Perhaps you need to run \`npm i\``
-    );
-  }
-
-  issues.push(
-    `Please ensure the package version has been bumped in accordance with [Semantic Versioning](https://semver.org/)\n and run \`npm i\` to update \`package-lock.json\` \n`
-  );
-}
-
-async function dangerJs(platform) {
+async function dangerJs(labelIssues) {
   await checkPRSize();
   checkTitlePrefix();
   checkJiraURL();
   checkSummary();
   checkAssignments();
-  checkLabels(platform);
-
-  if (platform === 'backend') {
-    checkForVersionUpdate();
-  }
+  checkLabels(labelIssues);
 
   // Submit report
   issues.reverse().forEach(issue => {
@@ -141,5 +119,6 @@ async function dangerJs(platform) {
 }
 
 module.exports = {
-  dangerJs
+  dangerJsCommon: dangerJs
 };
+  

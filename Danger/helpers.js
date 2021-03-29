@@ -20,6 +20,7 @@ const pullRequestLabels = {
   infra: 'for AWS-related changes',
   release: 'release candidate',
 };
+
 const defaultLabels = [
  'bug',
   'dependencies',

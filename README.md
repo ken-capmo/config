@@ -53,12 +53,12 @@ Add "extends": ["airbnb-typescript/base"] to the ESLint config File
 2. Create a dangerfile in the root of the repo with the following content:
 
 ```
-const { dangerJs } = require('@capmo/config/Danger/dangerfile');
+const { dangerJs } = require('@capmo/config/Danger/backend');
 
 dangerJs();
 ```
 
-You can currently pass a string argument to the `dangerJs` function, which can be "mobile", "backend" or "web". This is used to print a customised error message for the labels check. If nothing is passed a default message will be used.
+There are currently three separate dangerfiles: mobile, web and backend. The difference is in the check for labels and that backend has also a version check.
 
 3. Add the following to the circleci config:
 
