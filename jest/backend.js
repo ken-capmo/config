@@ -9,7 +9,7 @@ module.exports = {
     },
   },
   moduleDirectories: ['node_modules', 'src'],
-  moduleFileExtensions: ['ts', 'json'],
+  moduleFileExtensions: ['ts', 'json', 'js'],
   setupFiles: ['jest-date-mock'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/'],
