@@ -3,7 +3,7 @@ const {
   fileAddedLineNumbers,
   fileRemovedLineNumbers,
 } = require('danger-plugin-toolbox');
-const { getRandomImage } = require('./helpers');
+const { getRandomImage, getLabelIssues } = require('./helpers');
 const { imageStore } = require('./imageStore');
   
 const issues = [];
@@ -94,23 +94,23 @@ function checkAssignments() {
 }
 
 // labels are a bit different for every platform so you can pass an argument to set a custom message
-function checkLabels(labelIssues) {
+function checkLabels(platform) {
   if (!danger.github.issue.labels.length) {
     issues.push(
-      `${labelIssues}\n\n![img](${getRandomImage(
+      `${getLabelIssues(platform)}\n\n![img](${getRandomImage(
         imageStore.noLabels
       )}, 'Oops')\n`
     );
   }
 }
 
-async function dangerJs(labelIssues) {
+async function dangerJs(platform) {
   await checkPRSize();
   checkTitlePrefix();
   checkJiraURL();
   checkSummary();
   checkAssignments();
-  checkLabels(labelIssues);
+  checkLabels(platform);
 
   // Submit report
   issues.reverse().forEach(issue => {
@@ -119,6 +119,6 @@ async function dangerJs(labelIssues) {
 }
 
 module.exports = {
-  dangerJsCommon: dangerJs
+  dangerJs
 };
   
