@@ -3,7 +3,7 @@ const {
   fileAddedLineNumbers,
   fileRemovedLineNumbers,
 } = require('danger-plugin-toolbox');
-const { getLabelIssues, getRandomImage } = require('./helpers');
+const { getRandomImage } = require('./helpers');
 const { imageStore } = require('./imageStore');
   
 const issues = [];
