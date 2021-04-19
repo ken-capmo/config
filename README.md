@@ -49,13 +49,18 @@ Add "extends": ["airbnb-typescript/base"] to the ESLint config File
 
 ## Setup
 
-1. Install @capmo/config package
+1. Install @capmo/config package as dev dependency
+
+```bash
+npm install --save-dev @capmo/config
+```   
+
 2. Create a dangerfile in the root of the repo with the following content:
 
 ```
-const { dangerJs } = require('@capmo/config/Danger/backend');
+const { dangerJs } = require('@capmo/config/Danger/dangerfile');
 
-dangerJs();
+dangerJs(`${PLATFORM}`); // mobile | web | backend
 ```
 
 There are currently three separate dangerfiles: mobile, web and backend. The difference is in the check for labels and that backend has also a version check.
@@ -66,7 +71,7 @@ There are currently three separate dangerfiles: mobile, web and backend. The dif
 - run:
   name: Install Danger
   command: |
-  npm install danger
+  npm install danger danger-plugin-toolbox
 - run:
   name: Run Danger
   command: |
