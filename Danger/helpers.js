@@ -19,10 +19,11 @@ const pullRequestLabels = {
   wip: 'for work-in-progress',
   infra: 'for AWS-related changes',
   release: 'release candidate',
+  back_propagation: 'to indicate that the PR needs to be merged into other branch(es) as it includes important changes',
 };
 
 const defaultLabels = [
- 'bug',
+  'bug',
   'dependencies',
   'enhancement',
   'needs_rebase',
@@ -39,12 +40,13 @@ const labelsPerPlatform = {
   mobile: [
     ...defaultLabels,
     'release',
+    'back_propagation'
   ],
   web: [
-     ...defaultLabels,
+    ...defaultLabels,
   ],
   backend: [
-     ...defaultLabels,
+    ...defaultLabels,
     'infra',
   ],
 };
@@ -57,7 +59,7 @@ const getLabelIssues = (platform = "default") => {
       return text;
     }, '');
 
-    return `**This PR has no label(s)**\n\nPlease add one (or more) labels to give this PR a better visual context: ${labelsText}`;
+    return labelsText;
   }
 };
 
