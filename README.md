@@ -53,14 +53,14 @@ Add "extends": ["airbnb-typescript/base"] to the ESLint config File
 2. Create a dangerfile in the root of the repo with the following content:
 
 ```
-const { dangerJs } = require('@capmo/config/Danger/backend');
+const { dangerJs } = require('@capmo/config/Danger/dangerfile');
 
 dangerJs();
 ```
 
-There are currently three separate dangerfiles: mobile, web and backend. The difference is in the check for labels and that backend has also a version check.
+The above-mentioned dangerfile is a general one which can be generally used in any regular code repository.
 
-3. Add the following to the circleci config:
+1. Add the following to the circleci config:
 
 ```
 - run:
