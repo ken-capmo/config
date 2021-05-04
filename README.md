@@ -4,6 +4,32 @@ Basic, extendable configuration for Product and Engineering team
 
 # Linting and Styling
 
+ESLint
+
+Create a new `.eslintrc.js` file in the root of the project
+
+```
+const { eslintConfig } = require('@capmo/config');
+
+module.exports = {
+ ...eslintConfig
+// --- Uncomment for projects without React
+// "extends": [ "airbnb-typescript/base" ]
+// --- Uncomment for projects with React
+// "extends": [ "airbnb-typescript" ]
+};
+```
+
+Prettier
+
+Create a `.prettierrc.js` file in the root of the project with the following code
+
+```
+const { prettierConfig } = require('@capmo/config');
+
+module.exports = { ...prettierConfig };
+```
+
 ## Overview
 
 This serves as a basic configuration to standardise all our repositories. The styling makes use of the following technologies
