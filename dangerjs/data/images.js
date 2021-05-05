@@ -43,8 +43,8 @@ const imageStore = {
     'https://i.redd.it/eaz1le1v9et31.jpg',
     'http://i.imgur.com/vjn7Tws.jpg',
   ],
-};
+}
 
 module.exports = {
   imageStore,
-};
+}

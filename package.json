@@ -1,6 +1,6 @@
 {
   "name": "@capmo/config",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -21,6 +21,10 @@
     "capmo",
     "config"
   ],
+  "dependencies": {
+    "danger": "10.6.4",
+    "danger-plugin-toolbox": "1.29.0"
+  },
   "author": "tech@capmo.de",
   "license": "ISC",
   "bugs": {

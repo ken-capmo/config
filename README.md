@@ -2,7 +2,18 @@
 
 Basic, extendable configuration for Product and Engineering team
 
+## Overview
+
+This serves as a basic configuration to standardise all our repositories. The styling makes use of the following technologies
+
+- [Prettier](https://prettier.io/) - For styling the code
+- [EditorConfig](https://editorconfig.org/) - To ensure all editors use the same rules
+- [ESLint](https://eslint.org/docs/) - For linting our code to avoid using bad practices and is based on the [Airbnb](https://github.com/airbnb/javascript) styleguide.
+- [DangerJS](https://danger.systems/js) - To ensure Pull Requests are created correctly.
+
 # Linting and Styling
+
+## Setup
 
 ESLint
 
@@ -29,16 +40,6 @@ const { prettierConfig } = require('@capmo/config');
 
 module.exports = { ...prettierConfig };
 ```
-
-## Overview
-
-This serves as a basic configuration to standardise all our repositories. The styling makes use of the following technologies
-
-- [Prettier](https://prettier.io/) - For styling the code
-- [EditorConfig](https://editorconfig.org/) - To ensure all editors use the same rules
-- [ESLint](https://eslint.org/docs/) - For linting our code to avoid using bad practices and is based on the [Airbnb](https://github.com/airbnb/javascript) styleguide.
-
-## Setup
 
 To setup the styling copy the files from the provided directory. There are separate configs and installs for project with and without React.
 
@@ -79,9 +80,10 @@ Add "extends": ["airbnb-typescript/base"] to the ESLint config File
 2. Create a dangerfile in the root of the repo with the following content:
 
 ```
-const { dangerJs } = require('@capmo/config/Danger/dangerfile');
+const { dangerJs } = require('@capmo/config');
+const options = { platform: 'backend' }
 
-dangerJs();
+dangerJs(options);
 ```
 
 The above-mentioned dangerfile is a general one which can be generally used in any regular code repository.
@@ -98,3 +100,10 @@ The above-mentioned dangerfile is a general one which can be generally used in a
   command: |
   npx danger ci
 ```
+
+### Possible options
+| Option            | Default   | Type                        | Description                                                   |
+| :---------------- | :-------- | :-------------------------- | :------------------------------------------------------------ |
+| platform          | 'default' | 'backend', 'webb', 'mobile' | Used to specify the platform for labeling                     |
+| versionValidation | true      | Boolean                     | Determine whether or not we should check the package versions |
+| sizeLimit         | 1000      | Number                      | Maximum number of lines changes allowed                       |

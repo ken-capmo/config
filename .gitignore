@@ -1,0 +1,12 @@
+# npm modules
+node_modules
+
+# ide related files
+.idea/
+.vscode/
+
+# npm's log file
+npm-debug.log
+
+# lock files
+yarn.lock
