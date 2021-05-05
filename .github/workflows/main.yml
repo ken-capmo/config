@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  publish:
+  tag-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -32,8 +32,8 @@ jobs:
           draft: false
           prerelease: false
 
-  release:
-    needs: publish
+  publish:
+    needs: tag-release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

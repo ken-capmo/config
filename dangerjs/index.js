@@ -20,14 +20,14 @@ async function dangerJs({ platform = "default", versionValidation = true, sizeLi
   const modifiedFiles = danger.git.modified_files
 
   const size = await checkPRSize({ sizeLimit })
-  const title = checkTitlePrefix({ title })
+  const prTitle = checkTitlePrefix({ title })
   const url = checkTaskURL({ body })
   const summary = checkSummary({ body })
   const assignments = checkAssignments({ assignees })
   const labels = checkLabels({ platform, labels })
   const checkVersion = checkForVersionUpdate({ modifiedFiles, versionValidation })
 
-  const issues = [size, title, url, summary, assignments, labels, checkVersion]
+  const issues = [size, prTitle, url, summary, assignments, labels, checkVersion]
 
   issues.forEach(issue => {
     if (issue) {
