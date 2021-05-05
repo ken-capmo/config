@@ -1,4 +1,4 @@
-const { imageStore } = require('./data/images')
+const { imageStore } = require('./images')
 
 function getRandomImage (issueType) {
   const images = imageStore[issueType]
