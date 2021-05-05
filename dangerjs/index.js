@@ -1,5 +1,4 @@
-const { fail, danger } = require('danger')
-
+/* eslint-disable no-undef */
 const { checkPRSize } = require('./size')
 const { checkTitlePrefix } = require('./title')
 const { checkTaskURL } = require('./taskUrl')
