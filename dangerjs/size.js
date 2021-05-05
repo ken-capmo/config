@@ -13,7 +13,7 @@ const sizeError = [
 
 const testFilesRegex = /^(?!.*\.(spec|test)\.(ts)$).*\.ts$/gm
 
-async function checkSize ({ sizeLimit }) {
+async function checkPRSize ({ sizeLimit }) {
   const modifiedFilesWithoutTests = committedFilesGrep(testFilesRegex)
 
   let numberOfChangedLines = 0
@@ -32,5 +32,5 @@ async function checkSize ({ sizeLimit }) {
 }
 
 module.exports = {
-  checkSize
+  checkPRSize
 }
