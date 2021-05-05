@@ -7,7 +7,8 @@
   "repository": "https://github.com/capmo/config",
   "description": "Basic, extendable configuration for Product and Engineering team",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --max-warnings=0 index.js"
   },
   "keywords": [
     "typescript",
@@ -25,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/capmo/config/issues"
   },
-  "homepage": "https://github.com/capmo/config#readme"
+  "homepage": "https://github.com/capmo/config#readme",
+  "devDependencies": {
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0"
+  }
 }

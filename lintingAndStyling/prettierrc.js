@@ -1,9 +1,9 @@
 const prettierConfig = {
-  "semi": false,
-  "trailingComma": "none",
-  "singleQuote": true,
-  "printWidth": 80,
-  "jsxSingleQuote": true
+  semi: false,
+  trailingComma: 'none',
+  singleQuote: true,
+  printWidth: 80,
+  jsxSingleQuote: true
 }
 
 module.exports = {

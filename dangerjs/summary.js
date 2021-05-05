@@ -7,8 +7,8 @@ const summaryError = [
 
 const filledOutSummaryRegex = /.*(\*\*Summary\*\*\r\nTODO).*/g
 
-function checkSummary({ body = '' }) {
-  if(!body.length) return summaryError.join('')
+function checkSummary ({ body = '' }) {
+  if (!body.length) return summaryError.join('')
 
   if (body.match(filledOutSummaryRegex) !== null) {
     return summaryError.join('')

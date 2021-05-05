@@ -6,7 +6,7 @@ const assignmentError = [
   `![img](${getRandomImage('noAssignee')}, 'Oops')\n`
 ]
 
-function checkAssignments({ assignees }) {
+function checkAssignments ({ assignees }) {
   if (!assignees.length) {
     return assignmentError.join('')
   }

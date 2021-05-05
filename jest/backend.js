@@ -5,8 +5,8 @@ module.exports = {
   coverageReporters: ['lcov', 'text', 'json'],
   globals: {
     'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
+      tsconfig: 'tsconfig.json'
+    }
   },
   moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: ['ts', 'json', 'js'],
@@ -14,5 +14,5 @@ module.exports = {
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.ts$',
-  transform: { '^.+\\.ts$': 'ts-jest' },
+  transform: { '^.+\\.ts$': 'ts-jest' }
 }

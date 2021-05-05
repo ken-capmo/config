@@ -1,16 +1,16 @@
 const packageChangedNotLockError = [
-  `Changes were made to \`package.json\`, but not to \`package-lock.json\` - Perhaps you need to run \`npm i\``
+  'Changes were made to `package.json`, but not to `package-lock.json` - Perhaps you need to run `npm i`'
 ]
 
 const versionNotBumpedError = [
-  `Please ensure the package version has been bumped in accordance with [Semantic Versioning](https://semver.org/)\n`,
-  `and run \`npm i\` to update \`package-lock.json\`\n`
+  'Please ensure the package version has been bumped in accordance with [Semantic Versioning](https://semver.org/)\n',
+  'and run `npm i` to update `package-lock.json`\n'
 ]
 
 /**
  * TODO: Improve function to look for version bump vs checking files changed
  */
-function checkForVersionUpdate({ modifiedFiles }) {
+function checkForVersionUpdate ({ versionValidation, modifiedFiles }) {
   if (!versionValidation) return
 
   const packageChanged = modifiedFiles.includes('package.json')

@@ -1,7 +1,7 @@
 const {
   committedFilesGrep,
   fileAddedLineNumbers,
-  fileRemovedLineNumbers,
+  fileRemovedLineNumbers
 } = require('danger-plugin-toolbox')
 const { getRandomImage } = require('./data/helpers')
 
@@ -13,7 +13,7 @@ const sizeError = [
 
 const testFilesRegex = /^(?!.*\.(spec|test)\.(ts)$).*\.ts$/gm
 
-async function checkSize({ sizeLimit }) {
+async function checkSize ({ sizeLimit }) {
   const modifiedFilesWithoutTests = committedFilesGrep(testFilesRegex)
 
   let numberOfChangedLines = 0

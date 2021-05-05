@@ -1,7 +1,7 @@
 const { imageStore } = require('./data/images')
 
-function getRandomImage(issueType) {
-const images = imageStore[issueType]
+function getRandomImage (issueType) {
+  const images = imageStore[issueType]
   return images[Math.floor(Math.random() * Math.floor(images.length))]
 }
 
@@ -22,7 +22,7 @@ const pullRequestLabels = {
   wip: 'for work-in-progress',
   infra: 'for AWS-related changes',
   release: 'release candidate',
-  back_propagation: 'to indicate that the PR needs to be merged into other branch(es) as it includes important changes',
+  back_propagation: 'to indicate that the PR needs to be merged into other branch(es) as it includes important changes'
 }
 
 const defaultLabels = [
@@ -36,7 +36,7 @@ const defaultLabels = [
   'refactoring',
   'security',
   'setup',
-  'wip',
+  'wip'
 ]
 
 const labelsPerPlatform = {
@@ -47,12 +47,12 @@ const labelsPerPlatform = {
     'back_propagation'
   ],
   web: [
-    ...defaultLabels,
+    ...defaultLabels
   ],
   backend: [
     ...defaultLabels,
-    'infra',
-  ],
+    'infra'
+  ]
 }
 
 const getLabelIssues = (platform) => {
@@ -69,5 +69,5 @@ const getLabelIssues = (platform) => {
 
 module.exports = {
   getRandomImage,
-  getLabelIssues,
+  getLabelIssues
 }
