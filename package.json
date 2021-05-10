@@ -1,6 +1,6 @@
 {
   "name": "@capmo/config",
-  "version": "1.11.5",
+  "version": "1.11.6",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
