@@ -1,0 +1,55 @@
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:12
+  working_directory: ~/app
+
+references:
+  npm_cache_key: &npm_cache_key node-modules-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+  authenticate_github_packages: &authenticate_github_packages
+    run:
+      name: Authenticate for github registry
+      command: |
+        echo "@capmo:registry=https://npm.pkg.github.com" >> .npmrc
+        echo "//npm.pkg.github.com/:_authToken=${GITHUB_REGISTRY_AUTH_CONTEXT}" >> .npmrc
+  dependency_install: &dependency_install
+    run:
+      name: Dependency install
+      command: npm ci
+
+  save_node_modules: &save_node_modules
+    save_cache:
+      key: *npm_cache_key
+      paths:
+        - ./node_modules
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      name: Restore node_modules from cache
+      keys:
+        - *npm_cache_key
+
+workflows:
+  version: 2
+  microservice:
+    jobs:
+      - dangerjs:
+          context: 
+            - org-global
+
+jobs:
+  dangerjs:
+    <<: *defaults
+    resource_class: small
+    steps:
+      - checkout
+      - *authenticate_github_packages
+      - *restore_node_modules
+      - *dependency_install
+      - run:
+          name: Run Danger
+          command: |
+            npx danger ci
+
+
