@@ -7,6 +7,7 @@ const titleError = [
   '- `[PD-XXXX]` for a JIRA-ticket of the Daywalkers squad\n',
   '- `[IES-XXXX]` for a JIRA-ticket of the Internet Explorers squad\n',
   '- `[QA-XXXX]` for a JIRA-ticket of the QA team\n',
+  '- `[SI-XXXX]` for a JIRA-ticket related to Security and Infrastructure tasks\n',
   'Secondary:\n',
   '- `[HOTFIX]` for any time critical fixes\n',
   '- `[CHORE]` for any other tasks\n',
@@ -20,7 +21,7 @@ const titleError = [
 
 const genericPrefixes = ['[HOTFIX]', '[BUGFIX]', '[CHORE]', '[SETUP]', '[DEBUG]', '[BACK-PROPAGATION]']
 const dependabotPrefix = 'Bump'
-const teamSpecificPrefixes = /\[(PD|IES|QA)-\d+\].*/g // e.g. [PD-1234], [IES-1234], [QA-1234]
+const teamSpecificPrefixes = /\[(PD|IES|QA|SI)-\d+\].*/g // e.g. [PD-1234], [IES-1234], [QA-1234]
 
 function checkTitlePrefix ({ prTitle = '' }) {
   if (!prTitle.length) return titleError.join('')
