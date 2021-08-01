@@ -6,7 +6,7 @@ const urlError = [
   `![img](${getRandomImage('noJiraTicket')}, 'Oops')\n`
 ]
 
-const storyUrlRegex = /(https:\/\/capmo-team.atlassian.net\/browse\/)(PD|pd|IES|ies|QA|qa)-\d+/g
+const storyUrlRegex = /(https:\/\/capmo-team.atlassian.net\/browse\/)(PD|pd|IES|ies|QA|qa|SI|si)-\d+/g
 const hasUrl = value => value.includes(
   'https://capmo-team.atlassian.net/browse/'
 )
