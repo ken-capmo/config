@@ -8,6 +8,7 @@ const titleError = [
   '- `[IES-XXXX]` for a JIRA-ticket of the Internet Explorers squad\n',
   '- `[QA-XXXX]` for a JIRA-ticket of the QA team\n',
   '- `[SI-XXXX]` for a JIRA-ticket related to Security and Infrastructure tasks\n',
+  '- `[MOB-XXXX]` for a JIRA-ticket of the Mobile squad\n',
   'Secondary:\n',
   '- `[HOTFIX]` for any time critical fixes\n',
   '- `[CHORE]` for any other tasks\n',
