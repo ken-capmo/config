@@ -22,7 +22,7 @@ const titleError = [
 
 const genericPrefixes = ['[HOTFIX]', '[BUGFIX]', '[CHORE]', '[SETUP]', '[DEBUG]', '[BACK-PROPAGATION]', '[RELEASE]']
 const dependabotPrefix = 'Bump'
-const teamSpecificPrefixes = /\[(PD|IES|QA|SI)-\d+\].*/g // e.g. [PD-1234], [IES-1234], [QA-1234]
+const teamSpecificPrefixes = /\[(PD|IES|QA|SI|MOB)-\d+\].*/g // e.g. [PD-1234], [IES-1234], [QA-1234]
 
 function checkTitlePrefix ({ prTitle = '' }) {
   if (!prTitle.length) return titleError.join('')
